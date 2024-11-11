@@ -3,17 +3,17 @@ import 'package:flutter_b6_backend/models/task.dart';
 import 'package:flutter_b6_backend/services/task.dart';
 import 'package:provider/provider.dart';
 
-class GetAllTaskView extends StatelessWidget {
-  const GetAllTaskView({super.key});
+class GetCompletedTaskView extends StatelessWidget {
+  const GetCompletedTaskView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Get All Tasks"),
+          title: Text("Get Completed Tasks"),
         ),
         body: StreamProvider.value(
-          value: TaskServices().getAllTasks(),
+          value: TaskServices().getCompletedTasks(),
           initialData: [TaskModel()],
           builder: (context, child) {
             List<TaskModel> taskList = context.watch<List<TaskModel>>();

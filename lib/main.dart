@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_b6_backend/views/add_task.dart';
+import 'package:flutter_b6_backend/views/get_all_task.dart';
+import 'package:flutter_b6_backend/views/get_completed_task.dart';
+import 'package:flutter_b6_backend/views/get_in_completed_task.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AddTaskView(),
+      home:GetAllTaskView(),
     );
   }
 }
