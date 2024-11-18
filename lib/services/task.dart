@@ -32,9 +32,10 @@ class TaskServices {
   }
 
   ///Get All Tasks
-  Stream<List<TaskModel>> getAllTasks() {
+  Stream<List<TaskModel>> getAllTasks(String userID) {
     return FirebaseFirestore.instance
         .collection('taskCollection')
+        .where('userID', isEqualTo: userID)
         .snapshots()
         .map((taskList) {
       return taskList.docs
@@ -44,9 +45,10 @@ class TaskServices {
   }
 
   ///Get Completed Tasks
-  Stream<List<TaskModel>> getCompletedTasks() {
+  Stream<List<TaskModel>> getCompletedTasks(String userID) {
     return FirebaseFirestore.instance
         .collection('taskCollection')
+        .where('userID', isEqualTo: userID)
         .where('isCompleted', isEqualTo: true)
         .snapshots()
         .map((taskList) {
@@ -57,9 +59,10 @@ class TaskServices {
   }
 
   ///Get InCompleted Tasks
-  Stream<List<TaskModel>> getInCompletedTasks() {
+  Stream<List<TaskModel>> getInCompletedTasks(String userID) {
     return FirebaseFirestore.instance
         .collection('taskCollection')
+        .where('userID', isEqualTo: userID)
         .where('isCompleted', isEqualTo: false)
         .snapshots()
         .map((taskList) {

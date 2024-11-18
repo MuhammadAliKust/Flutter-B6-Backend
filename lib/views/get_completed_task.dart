@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_b6_backend/models/task.dart';
 import 'package:flutter_b6_backend/services/task.dart';
@@ -13,7 +14,7 @@ class GetCompletedTaskView extends StatelessWidget {
           title: Text("Get Completed Tasks"),
         ),
         body: StreamProvider.value(
-          value: TaskServices().getCompletedTasks(),
+          value: TaskServices().getCompletedTasks(FirebaseAuth.instance.currentUser!.uid),
           initialData: [TaskModel()],
           builder: (context, child) {
             List<TaskModel> taskList = context.watch<List<TaskModel>>();

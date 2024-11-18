@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_b6_backend/services/auth.dart';
 import 'package:flutter_b6_backend/views/forgot_pwd.dart';
+import 'package:flutter_b6_backend/views/get_all_task.dart';
 import 'package:flutter_b6_backend/views/register.dart';
 
 class LoginView extends StatelessWidget {
@@ -36,14 +37,10 @@ class LoginView extends StatelessWidget {
                       .then((val) {
                     if (val != null) {
                       if (val.emailVerified == true) {
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                title: Text("Message"),
-                                content: Text(val.email.toString()),
-                              );
-                            });
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GetAllTaskView()));
                       } else {
                         showDialog(
                             context: context,
