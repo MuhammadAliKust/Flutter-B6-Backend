@@ -7,7 +7,7 @@ import 'package:flutter_b6_backend/views/register.dart';
 class LoginView extends StatelessWidget {
   LoginView({super.key});
 
-  TextEditingController emailController = TextEditingController();
+   TextEditingController emailController = TextEditingController();
   TextEditingController pwdController = TextEditingController();
 
   @override
@@ -18,6 +18,7 @@ class LoginView extends StatelessWidget {
       ),
       body: Column(
         children: [
+
           TextField(
             controller: emailController,
           ),
@@ -36,7 +37,7 @@ class LoginView extends StatelessWidget {
                           password: pwdController.text)
                       .then((val) {
                     if (val != null) {
-                      if (val.emailVerified == true) {
+                      if (true) {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
